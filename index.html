@@ -5,9 +5,38 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/scripts.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Nunito" rel="stylesheet">
+    <script src="https://rawgit.com/mzabriskie/axios/master/dist/axios.min.js"></script>
+    <script src="https://rawgit.com/coinapi/coinapi-sdk/master/javascript-rest/coinapi_v1.js"></script>
+    <!-- <script src="https://rawgit.com/coinapi/coinapi-sdk/master/javascript-rest/example_javascript.js"></script> -->
+    
     <meta charset="utf-8">
   </head>
   <body>
-    
+    <div class="container-fluid">
+      <div class="jumbotron" style="overflow: auto;">
+        <h1>FOMO CHURCH</h1>
+        <p>Cryptocurrency Calculator</p>
+      </div>
+      <br>
+
+        <div class="well well-sm" id="moonWell">
+          <div class="formElements">
+
+
+          <div class="form-group">
+            <label for="buy-date">Buy date:</label>
+            <input id="buy-date" class="form-control" type="date">
+          </div>
+          <div class="form-group">
+            <label for="sell-date">Sell date:</label>
+            <input id="sell-date" class="form-control" type="date">
+          </div>
+          <button type="button" class="btn btn-default" id="calculate">Calculate</button>
+        </div>
+        </div>
+
+    </div>
+
   </body>
 </html>
