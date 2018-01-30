@@ -30,11 +30,24 @@
         <div class="formElements">
           <div class="form-group">
             <label for="fiatType">Fiat type:</label>
-            <input id="fiatType" class="form-control" type="text">
+            <select id="fiatType" class="form-control">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="CAD">CAD</option>
+              <option value="GBP">GBP</option>
+              <option value="RUR">RUR</option>
+              <option value="JPY">JPY</option>
+              <option value="CNY">CNY</option>
+              <option value="KRW">KRW</option>
+            </select>
           </div>
-          <div class="form-group">
+          <div class="dropdown">
             <label for="coinType">Coin Type:</label>
-            <input id="coinType" class="form-control" type="text">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Click to search
+              <span class="caret"></span></button>
+            <ul id="coinType" class="dropdown-menu">
+              <input class="form-control" id="coin-type-input" type="text" placeholder="Search..">
+            </ul>
           </div>
           <div class="form-group">
             <label for="sell-date">Amount in fiat:</label>
