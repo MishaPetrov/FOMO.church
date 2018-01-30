@@ -7,6 +7,11 @@ h1, p {
   text-align: center;
 }
 
+ul li {
+  margin: 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted gray;
+}
 
 .jumbotron {
   margin-bottom:-120px;
@@ -20,7 +25,6 @@ h1, p {
   padding-left:0;
   padding-right:0;
 }
-
 
 #moonDiv {
   margin-top: 75%;
@@ -96,4 +100,8 @@ label {
 
 .dropdown {
   margin-bottom: 10px;
+}
+
+.crypto-icon {
+  width: 25px;
 }
