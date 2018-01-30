@@ -43,3 +43,30 @@ label {
   color: #fff;
   background: #00000080;
 }
+
+/* carousel styling */
+
+#tShirtOne {
+    background: #2f4357;
+    margin-top: 20px;
+}
+
+#tShirtTwo {
+    background: #778899;
+    margin-top: 20px;
+}
+
+#tShirtThree {
+    background: #54FF9F;
+    margin-top: 20px;
+}
+
+.carousel .item{
+    min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+}
+.carousel .item img{
+    margin: 0 auto; /* Align slide image horizontally center */
+}
+.bs-example{
+	margin: 20px;
+}
