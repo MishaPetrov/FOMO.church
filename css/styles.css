@@ -20,6 +20,10 @@ ul li {
   border-bottom: 1px dotted gray;
 }
 
+button#calculate {
+  margin: 0 auto;
+}
+
 .jumbotron {
   margin-bottom:-120px;
   padding-left:0;

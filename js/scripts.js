@@ -41,6 +41,7 @@ $(document).ready(function() {
     });
     $("li").click(function() {
       coinTest = $(this).text();
+      $(".crypto-search-btn").text(coinTest);
     });
 
   });
@@ -83,7 +84,7 @@ $(document).ready(function() {
         var numberOfCoins = fiatAmount / buyPrice;
         var calculateAmountNow = numberOfCoins * sellPrice;
 
-        $(".result").text("I would have: " + calculateAmountNow);
+        $(".result").text("I would have: " + fiatTest + "  " + calculateAmountNow.toFixed(2));
       });
 
 
