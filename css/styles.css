@@ -46,10 +46,21 @@ label {
 
 /* carousel styling */
 
-.carousel {
+#tShirtOne {
     background: #2f4357;
     margin-top: 20px;
 }
+
+#tShirtTwo {
+    background: #778899;
+    margin-top: 20px;
+}
+
+#tShirtThree {
+    background: #54FF9F;
+    margin-top: 20px;
+}
+
 .carousel .item{
     min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
 }
