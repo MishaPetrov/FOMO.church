@@ -29,8 +29,8 @@ $(document).ready(function() {
     startDate = $("input#buy-date").val();
     // var lastDateDigit = parseInt(startDate.slice(9,10)) + 1;
     // startDate = startDate.slice(0,9) + lastDateDigit;
-    coinTest = "BTC";
-    fiatTest = "USD";
+    coinTest = $("input#coinType").val();
+    fiatTest = $("input#fiatType").val();
     fiatAmount = parseFloat($("input#fiat-amount").val());
     //console.log("Bought " + numberOfCoins + " " + coinType);
 
@@ -50,21 +50,24 @@ $(document).ready(function() {
 
       var coinVarBuy = response[coinTest];
       buyPrice = coinVarBuy[fiatTest];
-    //  testVar.push(coinVar[fiatTest]);
+      //  testVar.push(coinVar[fiatTest]);
 
+      $.get(requestSellPrice, function(response) {
 
-    $.get(requestSellPrice, function(response) {
+        console.log(requestSellPrice)
+        var coinVarSell = response[coinTest];
+        sellPrice = coinVarSell[fiatTest];
+        console.log("buy price: " + buyPrice + ", sell price: " + sellPrice);
 
-      console.log(requestSellPrice)
-      var coinVarSell = response[coinTest];
-      sellPrice = coinVarSell[fiatTest];
-      console.log("buy price: " + buyPrice + ", sell price: " + sellPrice);
-    });
-      $(".test").text(buyPrice);
+        var numberOfCoins = fiatAmount / buyPrice;
+        var calculateAmountNow = numberOfCoins * sellPrice;
+
+        console.log("I would have: " + calculateAmountNow);
+      });
+      //$(".test").text(buyPrice);
+
 
       //console.log(buyPrice);
-
-
 
     });
 
