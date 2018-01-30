@@ -1,0 +1,45 @@
+body, html {
+  background: black;
+}
+
+h1, p {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+
+.jumbotron {
+  margin:0;
+  padding-left:0;
+  padding-right:0;
+  border-radius: 0;
+}
+
+.container-fluid {
+  padding-left:0;
+  padding-right:0;
+}
+
+
+#moonDiv {
+  margin-top: 75%;
+}
+#moonWell {
+  background-image: url("../img/moon.jpg");
+  margin: 0 auto;
+  height: 700px;
+  width: 700px;
+  border-radius: 50%;
+  border: none;
+}
+
+.formElements {
+margin: 0 auto;
+padding-top: 20%;
+width: 250px;
+}
+
+label {
+  color: #fff;
+  background: #00000080;
+}
