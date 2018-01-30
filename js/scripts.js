@@ -21,42 +21,55 @@ $(document).ready(function() {
   var coinType;
   var fiatType;
   var fiatAmount;
-  var buyPrice;
+
 
   $("button#calculate").click(function() {
-
+    var buyPrice;
+    var sellPrice;
     startDate = $("input#buy-date").val();
     // var lastDateDigit = parseInt(startDate.slice(9,10)) + 1;
     // startDate = startDate.slice(0,9) + lastDateDigit;
-    coinType = "BTC";
-    fiatType = "USD";
+    coinTest = "BTC";
+    fiatTest = "USD";
     fiatAmount = parseFloat($("input#fiat-amount").val());
     //console.log("Bought " + numberOfCoins + " " + coinType);
+
     startDate = Date.parse($("input#buy-date").val());
+    startDate /= 1000;
     // console.log("Bought on " + startDate);
     endDate = Date.parse($("input#sell-date").val());
+    endDate /= 1000;
     // console.log("Sold on " + endDate);
-
     // Config for HTTP request urls
-    var requestBuyPrice = "https://min-api.cryptocompare.com/data/pricehistorical?fsym=" + coinType + "&tsyms=" + fiatType + "&ts=" + startDate;
-    var requestSellPrice = "https://min-api.cryptocompare.com/data/pricehistorical?fsym=" + coinType + "&tsyms=" + fiatType + "&ts=" + endDate;
+    var requestBuyPrice = "https://min-api.cryptocompare.com/data/pricehistorical?fsym=" + coinTest + "&tsyms=" + fiatTest + "&ts=" + startDate;
+    var requestSellPrice = "https://min-api.cryptocompare.com/data/pricehistorical?fsym=" + coinTest + "&tsyms=" + fiatTest + "&ts=" + endDate;
 
 
     $.get(requestBuyPrice, function(response) {
-      debugger;
-      var obj = response.coinType;
-      buyPrice = obj.fiatType;
-      debugger;
-    });
+      console.log(requestBuyPrice)
+
+      var coinVarBuy = response[coinTest];
+      buyPrice = coinVarBuy[fiatTest];
+    //  testVar.push(coinVar[fiatTest]);
+
 
     $.get(requestSellPrice, function(response) {
-      var obj = response.BTC;
-      buyPrice = obj.USD;
+
+      console.log(requestSellPrice)
+      var coinVarSell = response[coinTest];
+      sellPrice = coinVarSell[fiatTest];
+      console.log("buy price: " + buyPrice + ", sell price: " + sellPrice);
+    });
+      $(".test").text(buyPrice);
+
+      //console.log(buyPrice);
+
+
+
     });
 
-    $(".test").text(buyPrice);
 
-    console.log(buyPrice);
+
 
     //calculate(coinType, fiatAmount, fiatType, startDate, endDate);
   })
