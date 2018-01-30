@@ -41,6 +41,7 @@ h1, p {
   margin: -350 0 0 -350;
 }
 
+
 .formElements {
 margin: 0 auto;
 padding-top: 20%;
@@ -78,4 +79,21 @@ label {
 }
 .bs-example{
 	margin: 20px;
+}
+
+#coin-type-input {
+    padding: 20px;
+    margin-top: -6px;
+    border: 0;
+    border-radius: 0;
+    background: #f1f1f1;
+    width: 250px;
+}
+
+.dropdown-toggle {
+  width: 250px;
+}
+
+.dropdown {
+  margin-bottom: 10px;
 }
