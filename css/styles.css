@@ -7,9 +7,23 @@ h1, p {
   text-align: center;
 }
 
+/* Tiny title and robot alien icon */
+/*#robot-alien {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+}
+
+#titleTest {
+  display: inline-block;
+  margin-top: 75px;
+  height: 75px;
+  color: #9fabb7;
+}*/
+
 
 .jumbotron {
-  margin-bottom:-120px;
+  margin-bottom:-130px;
   padding-left:0;
   padding-right:0;
   border-radius: 0;
