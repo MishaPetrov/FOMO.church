@@ -28,7 +28,8 @@ $(document).ready(function() {
     //var listItems = '<option selected="selected" value="0">- Select -</option>';
 
     Object.keys(response.Data).forEach(function(key) {
-      listItems += "<li value='" + key + "'><a href='#'>" + key + "</a></li>";
+      var imgUrl = response.Data[key].ImageUrl;
+      listItems += "<li value='" + key + "'><a href='#'><img class='crypto-icon' src='https://www.cryptocompare.com" + imgUrl + "'>&nbsp;&nbsp;" + key + "</a></li>";
     });
     //$("#coinType").append('<input class="form-control" id="coin-type-input" type="text" placeholder="Search..">');
     $("#coinType").append(listItems);
@@ -62,7 +63,6 @@ $(document).ready(function() {
     // Config for HTTP request urls
     var requestBuyPrice = "https://min-api.cryptocompare.com/data/pricehistorical?fsym=" + coinTest + "&tsyms=" + fiatTest + "&ts=" + startDate;
     var requestSellPrice = "https://min-api.cryptocompare.com/data/pricehistorical?fsym=" + coinTest + "&tsyms=" + fiatTest + "&ts=" + endDate;
-
 
 
     $.get(requestBuyPrice, function(response) {
