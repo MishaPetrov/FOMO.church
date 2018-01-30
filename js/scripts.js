@@ -22,6 +22,25 @@ $(document).ready(function() {
   var fiatType;
   var fiatAmount;
 
+  $.get("https://min-api.cryptocompare.com/data/all/coinlist", function(response) {
+    console.log(response);
+    var listItems = '';
+    //var listItems = '<option selected="selected" value="0">- Select -</option>';
+
+    Object.keys(response.Data).forEach(function(key) {
+      listItems += "<li value='" + key + "'><a href='#'>" + key + "</a></li>";
+    });
+    //$("#coinType").append('<input class="form-control" id="coin-type-input" type="text" placeholder="Search..">');
+    $("#coinType").append(listItems);
+    $("#coin-type-input").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#coinType li").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+
+  });
+
 
 
   $("button#calculate").click(function() {
@@ -29,7 +48,7 @@ $(document).ready(function() {
     var sellPrice;
     startDate = $("input#buy-date").val();
 
-    coinTest = $("input#coinType").val();
+    coinTest = $("#coinType").val();
     fiatTest = $("#fiatType").val();
     fiatAmount = parseFloat($("input#fiat-amount").val());
 
@@ -50,6 +69,7 @@ $(document).ready(function() {
       console.log(requestBuyPrice)
 
       var coinVarBuy = response[coinTest];
+      debugger;
       buyPrice = coinVarBuy[fiatTest];
 
 
