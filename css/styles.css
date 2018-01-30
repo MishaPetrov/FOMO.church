@@ -9,10 +9,11 @@ h1, p {
 
 
 .jumbotron {
-  margin:0;
+  margin-bottom:-120px;
   padding-left:0;
   padding-right:0;
   border-radius: 0;
+  background-color: rgba(0,0,0,0);
 }
 
 .container-fluid {
@@ -25,12 +26,19 @@ h1, p {
   margin-top: 75%;
 }
 #moonWell {
-  background-image: url("../img/moon.jpg");
-  margin: 0 auto;
-  height: 700px;
-  width: 700px;
-  border-radius: 50%;
+  /*background-image: url("../img/moon.jpg");*/
+  /*margin: 0 auto;*/
+
+  height: 700;
+  width: 700;
   border: none;
+  background-color: rgba(0,0,0,0);
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  right: 25%;
+  bottom: 25%;
+  margin: -350 0 0 -350;
 }
 
 
@@ -44,6 +52,7 @@ label {
   color: #fff;
   background: #00000080;
 }
+/* moonDiv */
 
 /* carousel styling */
 
