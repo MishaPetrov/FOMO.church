@@ -18,7 +18,7 @@ $(document).ready(function() {
 
   var startDate;
   var endDate;
-  var coinType;
+  var coinTest = "";
   var fiatType;
   var fiatAmount;
 
@@ -38,20 +38,20 @@ $(document).ready(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
     });
+    $("li").click(function() {
+      coinTest = $(this).text();
+    });
 
   });
-
-
 
   $("button#calculate").click(function() {
     var buyPrice;
     var sellPrice;
     startDate = $("input#buy-date").val();
 
-    coinTest = $("#coinType").val();
+    //coinTest = $("#coinType").val();
     fiatTest = $("#fiatType").val();
     fiatAmount = parseFloat($("input#fiat-amount").val());
-
 
     startDate = Date.parse($("input#buy-date").val());
     startDate /= 1000;
@@ -67,9 +67,7 @@ $(document).ready(function() {
 
     $.get(requestBuyPrice, function(response) {
       console.log(requestBuyPrice)
-
       var coinVarBuy = response[coinTest];
-      debugger;
       buyPrice = coinVarBuy[fiatTest];
 
 
