@@ -72,14 +72,13 @@ $(document).ready(function() {
       debugger;
       var coinVarBuy = response[coinTest];
       buyPrice = coinVarBuy[fiatTest];
+      console.log(buyPrice);
 
 
       $.get(requestSellPrice, function(response) {
 
-        console.log(requestSellPrice)
         var coinVarSell = response[coinTest];
         sellPrice = coinVarSell[fiatTest];
-        console.log("buy price: " + buyPrice + ", sell price: " + sellPrice);
 
         var numberOfCoins = fiatAmount / buyPrice;
         var calculateAmountNow = numberOfCoins * sellPrice;
