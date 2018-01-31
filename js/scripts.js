@@ -29,7 +29,7 @@ $(document).ready(function() {
 
     Object.keys(response.Data).forEach(function(key) {
       var imgUrl = response.Data[key].ImageUrl;
-      listItems += "<li value='" + key + "'><a href='#'><img class='crypto-icon' src='https://www.cryptocompare.com" + imgUrl + "'>&nbsp;&nbsp;" + key + "</a></li>";
+      listItems += "<li value='" + key + "'><a href='#'><img class='crypto-icon' src='https://www.cryptocompare.com" + imgUrl + "'><span class='key-span'>" + key + "</span></a></li>";
     });
     //$("#coinType").append('<input class="form-control" id="coin-type-input" type="text" placeholder="Search..">');
     $("#coinType").append(listItems);
@@ -41,11 +41,13 @@ $(document).ready(function() {
     });
     $("li").click(function() {
       coinTest = $(this).text();
+      $(".crypto-search-btn").text(coinTest);
     });
 
   });
 
-  $("button#calculate").click(function() {
+  $("button#calculate").click(function(event) {
+    event.preventDefault();
     var buyPrice;
     var sellPrice;
     startDate = $("input#buy-date").val();
@@ -67,6 +69,7 @@ $(document).ready(function() {
 
     $.get(requestBuyPrice, function(response) {
       console.log(requestBuyPrice)
+      debugger;
       var coinVarBuy = response[coinTest];
       buyPrice = coinVarBuy[fiatTest];
 
@@ -81,7 +84,7 @@ $(document).ready(function() {
         var numberOfCoins = fiatAmount / buyPrice;
         var calculateAmountNow = numberOfCoins * sellPrice;
 
-        console.log("I would have: " + calculateAmountNow);
+        $(".result").text("I would have: " + fiatTest + "  " + calculateAmountNow.toFixed(2));
       });
 
 

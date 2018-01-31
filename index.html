@@ -58,7 +58,6 @@
 <!-- jumbotron -->
       <div class="jumbotron" style="overflow: auto;">
         <h1>FOMO . CHURCH</h1>
-        <p>Cryptocurrency Calculator</p>
       </div>
       <br>
 <!-- moon -->
@@ -85,7 +84,7 @@
           </div>
           <div class="dropdown">
             <label for="coinType">Coin Type:</label>
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Click to search
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="crypto-search-btn">Click to search</span>
               <span class="caret"></span></button>
             <ul id="coinType" class="dropdown-menu">
               <input class="form-control" id="coin-type-input" type="text" placeholder="Search..">
@@ -105,6 +104,10 @@
           </div>
           <button type="button" class="btn btn-default" id="calculate">Calculate</button>
         </div>
+      </div>
+
+      <div class="well" id="output">
+        <span class="result"></span>
       </div>
 <!-- T-shirt carousel -->
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
