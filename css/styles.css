@@ -20,6 +20,11 @@ ul li {
   border-bottom: 1px dotted gray;
 }
 
+#coinType {
+ overflow-y: scroll;
+ max-height: 320px;
+}
+
 button#calculate {
   margin: 0 auto;
 }
