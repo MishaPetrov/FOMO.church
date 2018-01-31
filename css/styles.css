@@ -26,14 +26,23 @@ body, html {
   color: #2a2a2a;
 }
 
-#result {
+.resultDisplay {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.result {
   font-family: 'Poiret One', cursive;
   text-align: center;
+  color: #fff;
+
 }
 
 p {
   font-family: 'Poiret One', cursive;
   text-align: center;
+
 }
 
 ul li {
@@ -88,16 +97,12 @@ button#calculate {
   border: none;
   background-color: rgba(0,0,0,0);
   position: absolute;
-  top: 35%;
+  top: 25%;
   left: 25%;
   right: 25%;
   bottom: 25%;
   margin: -350 0 0 -350;
-}
-
-.result {
-  color: #000;
-  font-size: 16pt;
+  z-index: 1;
 }
 
 .key-span {
