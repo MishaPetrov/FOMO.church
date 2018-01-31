@@ -52,7 +52,7 @@ $(document).ready(function() {
     });
 
     sortedCoins.forEach(function(sortedCoin) {
-      listItems += "<li value='" + sortedCoin.id + "'><a href='#'><img class='crypto-icon' src='https://www.cryptocompare.com" + sortedCoin.imgUrl + "'><span class='key-span'>" + sortedCoin.name + "</span></a></li>";
+      listItems += "<li value='" + sortedCoin.id + "'><a><img class='crypto-icon' src='https://www.cryptocompare.com" + sortedCoin.imgUrl + "'><span class='key-span'>" + sortedCoin.name + "</span></a></li>";
     });
     //$("#coinType").append('<input class="form-control" id="coin-type-input" type="text" placeholder="Search..">');
     $("#coinType").append(listItems);
@@ -96,6 +96,43 @@ $(document).ready(function() {
     var requestBuyPrice = "https://min-api.cryptocompare.com/data/pricehistorical?fsym=" + coinTest + "&tsyms=" + fiatTest + "&ts=" + startDate;
     var requestSellPrice = "https://min-api.cryptocompare.com/data/pricehistorical?fsym=" + coinTest + "&tsyms=" + fiatTest + "&ts=" + endDate;
 
+    // Output variables
+    var buyDate = new Date((startDate * 1000) + 86400000);
+    console.log("THIS BUYDATE" + buyDateOutput);
+    var sellDate = new Date((endDate * 1000) + 86400000);
+    var DateDifferenceOutput = false;
+    var fiatSymbol = function convertToSymbol(fiatSymbol) {
+      if (fiatSymbol === "USD") {
+        fiatSymbol = "$";
+      } else if (fiatSymbol === "EUR") {
+        fiatSymbol = "€";
+      } else if (fiatSymbol === "CAD") {
+        fiatSymbol = "$";
+      } else if (fiatSymbol === "GBP") {
+        fiatSymbol = "£";
+      }
+      else if (fiatSymbol === "RUR") {
+        fiatSymbol = "₽";
+      } else if (fiatSymbol === "JPY") {
+        fiatSymbol = "¥";
+      } else if (fiatSymbol === "CNY") {
+        fiatSymbol = "¥";
+      } else {
+        fiatSymbol = "$";
+      }
+      return fiatSymbol;
+    };
+
+    // These functions change the output date format to month/date/year, e.g. 01/12/2018
+    var buyDateOutput = function formatDate(value)
+        {
+           return value.getMonth()+1 + "/" + value.getDate() + "/" + (value.getYear()+1900); console.log(value.getYear());
+        }
+    var sellDateOutput = function formatDate(value)
+        {
+           return value.getMonth()+1 + "/" + value.getDate() + "/" + (value.getYear()+1900); console.log(value.getYear());
+        }
+
 
     $.get(requestBuyPrice, function(response) {
       console.log(requestBuyPrice)
@@ -112,9 +149,9 @@ $(document).ready(function() {
         var numberOfCoins = fiatAmount / buyPrice;
         var calculateAmountNow = numberOfCoins * sellPrice;
 
-        $(".result").text("If I had invested " + fiatTest + buyPrice + "  in " + coinTest + " on " + startDate + ", then on " + endDate + " I would have made/lost " + (calculateAmountNow.toFixed(2) - buyPrice));
+        $(".result").text("If I had invested " + fiatSymbol(fiatTest) + fiatAmount + "  in " + coinTest + " on " + buyDateOutput(buyDate) + " and sold that investment on " + sellDateOutput(sellDate) + " I would have made " + fiatSymbol(fiatTest) + Math.round(calculateAmountNow.toFixed(2) - fiatAmount));
 
-        $
+
       });
 
 

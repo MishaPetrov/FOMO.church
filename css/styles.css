@@ -1,3 +1,13 @@
+/* font options
+font-family: 'Dhurjati', sans-serif;
+font-family: 'Libre Barcode 39 Text', cursive;
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'Encode Sans', sans-serif;
+font-family: 'Lobster', cursive;
+font-family: 'Maven Pro', sans-serif;
+font-family: 'Poiret One', cursive;
+*/
+
 body, html {
   background: black;
 }
@@ -9,8 +19,20 @@ body, html {
   background: #5dfda2; /* Gecko Browsers */
 }
 
-h1, p {
-  font-family: 'Montserrat', sans-serif;
+#title {
+  font-family: 'Poiret One', cursive;
+  text-align: center;
+  font-size: 32pt;
+  color: #2a2a2a;
+}
+
+#result {
+  font-family: 'Poiret One', cursive;
+  text-align: center;
+}
+
+p {
+  font-family: 'Poiret One', cursive;
   text-align: center;
 }
 

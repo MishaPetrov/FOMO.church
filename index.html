@@ -17,12 +17,12 @@
     <script src="js/Projector.js"></script>
     <script src="js/CanvasRenderer.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dhurjati|Encode+Sans|Libre+Barcode+39+Text|Libre+Franklin|Lobster|Maven+Pro|Open+Sans+Condensed:300|Poiret+One" rel="stylesheet">
     <script src="https://rawgit.com/mzabriskie/axios/master/dist/axios.min.js"></script>
     <script src="https://rawgit.com/coinapi/coinapi-sdk/master/javascript-rest/coinapi_v1.js"></script>
     <script src="js/scripts.js"></script>
     <!-- <script src="https://rawgit.com/coinapi/coinapi-sdk/master/javascript-rest/example_javascript.js"></script> -->
-    <title>fomo.church - fomo calculator</title>
+    <title>fomo.church - crypto calculator</title>
   </head>
   <body>
     <div class="container-fluid">
@@ -52,23 +52,20 @@
         <script type="text/javascript">
         crypt_single_base_currency = "Bitcoin Cash (BCH)";crypt_single_target_currency = "US Dollar (USD)";crypt_single_border_color = "#000000";crypt_single_font_size = "small";crypt_single_font_color = "#ffffff";</script><script type="text/javascript" src="js/single_widget.js"></script>
       </div>
-
-    </div> -->
-<!-- Alternate Title -->
-    <!-- <div class="row text-center" id="titleTest">
-      <img src="img/robot-alien.png" id="robot-alien">
-      <p id="titleTest2">FOMO . CHURCH  &#x25CF;  Fomo Calculator</p>
-    </div> -->
+    </div>  -->
 <!-- jumbotron -->
       <div class="jumbotron" style="overflow: auto;">
-        <h1>FOMO . CHURCH<span class="result"></span></h1>
+        <p id="title"><strong>F &nbsp;&nbsp;O &nbsp;&nbsp;M &nbsp;&nbsp;O &nbsp;&nbsp;. &nbsp;&nbsp;C &nbsp;&nbsp;H &nbsp;&nbsp;U &nbsp;&nbsp;R &nbsp;&nbsp;C &nbsp;&nbsp;H</strong></p>
+        <p>c r y p t o &nbsp; c a l c u l a t o r</p>
+        <div class="resultDisplay">
+          <p><span class="result"></span></p>
+        </div>
       </div>
 <!-- moon -->
       <div class="moonDiv">
         <div id="container"></div>
           <script src="js/moon.js"></script>
       </div> <!-- moonDiv -->
-
 <!-- calculator -->
       <div class="well well-sm" id="moonWell">
         <div class="formElements">
@@ -95,7 +92,7 @@
           </div>
           <div class="form-group">
             <label for="sell-date">Amount in fiat:</label>
-            <input id="fiat-amount" class="form-control" type="text">
+            <input id="fiat-amount" class="form-control" type="text" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
           </div>
           <div class="form-group">
             <label for="buy-date">Buy date:</label>
@@ -107,10 +104,6 @@
           </div>
           <button type="button" class="btn btn-default" id="calculate">Calculate</button>
         </div>
-      </div>
-
-      <div class="well" id="output">
-        <span class="result"></span>
       </div>
 <!-- T-shirt carousel -->
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
