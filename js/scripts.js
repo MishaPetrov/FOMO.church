@@ -10,10 +10,6 @@ function SortCoin(name, id, sortId, imgUrl) {
   this.imgUrl = imgUrl;
 }
 
-function convertDate(date) {
-  return date;
-}
-
 var todayDate = function() {
   var today = new Date();
   var dd = today.getDate();
@@ -86,7 +82,7 @@ $(document).ready(function() {
     });
 
     sortedCoins.forEach(function(sortedCoin) {
-      listItems += "<li value='" + sortedCoin.id + "'><a href='#'><img class='crypto-icon' src='https://www.cryptocompare.com" + sortedCoin.imgUrl + "'><span class='key-span'>" + sortedCoin.name + "</span></a></li>";
+      listItems += "<li value='" + sortedCoin.id + "'><a><img class='crypto-icon' src='https://www.cryptocompare.com" + sortedCoin.imgUrl + "'><span class='key-span'>" + sortedCoin.name + "</span></a></li>";
     });
 
     //$("#coinType").append('<input class="form-control" id="coin-type-input" type="text" placeholder="Search..">');
