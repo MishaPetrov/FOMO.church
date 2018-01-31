@@ -134,6 +134,7 @@ $(document).ready(function() {
     $.get(requestBuyPrice, function(response) {
       var coinVarBuy = response[coinTest];
       buyPrice = coinVarBuy[fiatTest];
+      console.log("HERE" + buyPrice);
 
 
       $.get(requestSellPrice, function(response) {
@@ -144,8 +145,12 @@ $(document).ready(function() {
         var numberOfCoins = fiatAmount / buyPrice;
         var calculateAmountNow = numberOfCoins * sellPrice;
 
-        $(".result").text("I would have: " + fiatTest + "  " + calculateAmountNow.toFixed(2));
+        $(".result").text("If I had invested " + fiatTest + buyPrice + "  in " + coinTest + " on " + startDate + ", then on " + endDate + " I would have made/lost " + (calculateAmountNow.toFixed(2) - buyPrice));
+
+        $
       });
+
+
 
 
     });
