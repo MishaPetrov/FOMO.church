@@ -1,3 +1,13 @@
+/* font options
+font-family: 'Dhurjati', sans-serif;
+font-family: 'Libre Barcode 39 Text', cursive;
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'Encode Sans', sans-serif;
+font-family: 'Lobster', cursive;
+font-family: 'Maven Pro', sans-serif;
+font-family: 'Poiret One', cursive;
+*/
+
 body, html {
   background: black;
 }
@@ -9,9 +19,30 @@ body, html {
   background: #5dfda2; /* Gecko Browsers */
 }
 
-h1, p {
-  font-family: 'Montserrat', sans-serif;
+#title {
+  font-family: 'Poiret One', cursive;
   text-align: center;
+  font-size: 32pt;
+  color: #2a2a2a;
+}
+
+.resultDisplay {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.result {
+  font-family: 'Poiret One', cursive;
+  text-align: center;
+  color: #fff;
+
+}
+
+p {
+  font-family: 'Poiret One', cursive;
+  text-align: center;
+
 }
 
 ul li {
@@ -66,16 +97,12 @@ button#calculate {
   border: none;
   background-color: rgba(0,0,0,0);
   position: absolute;
-  top: 35%;
+  top: 25%;
   left: 25%;
   right: 25%;
   bottom: 25%;
   margin: -350 0 0 -350;
-}
-
-.result {
-  color: #000;
-  font-size: 16pt;
+  z-index: 1;
 }
 
 .key-span {
