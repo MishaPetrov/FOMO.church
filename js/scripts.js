@@ -14,6 +14,22 @@ function convertDate(date) {
   return date;
 }
 
+var todayDate = function() {
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+
+  var yyyy = today.getFullYear();
+  if(dd<10){
+      dd='0'+dd;
+  }
+  if(mm<10){
+      mm='0'+mm;
+  }
+  var today = yyyy+'-'+mm+'-'+dd;
+  return today;
+}
+
 // function calculate(coinType, fiatAmount, fiatType, startDate, endDate) {
 //   var sellPrice;
 //   var buyPrice;
@@ -32,6 +48,9 @@ $(document).ready(function() {
   var fiatType;
   var fiatAmount;
 
+  $("#buy-date").attr("max", todayDate());
+  $("#sell-date").attr("max", todayDate());
+
   $.get("https://min-api.cryptocompare.com/data/all/coinlist", function(response) {
     var listItems = '';
     var sortedCoins = [];
@@ -48,12 +67,14 @@ $(document).ready(function() {
     });
 
     sortedCoins.sort(function(a, b) {
-      return a.id-b.id;
+      return a.sortId-b.sortId;
     });
 
     sortedCoins.forEach(function(sortedCoin) {
       listItems += "<li value='" + sortedCoin.id + "'><a href='#'><img class='crypto-icon' src='https://www.cryptocompare.com" + sortedCoin.imgUrl + "'><span class='key-span'>" + sortedCoin.name + "</span></a></li>";
     });
+
+    console.log(sortedCoins);
     //$("#coinType").append('<input class="form-control" id="coin-type-input" type="text" placeholder="Search..">');
     $("#coinType").append(listItems);
     $("#coin-type-input").on("keyup", function() {
