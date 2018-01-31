@@ -69,8 +69,9 @@ $(document).ready(function() {
       var requestStartDate = "https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=" + $(this).val();
       $.get(requestStartDate, function(response) {
         // WE ARE HERE
-        var date = response.Data.General.StartDate;
-        $("#buy-date").attr("min", date.toISOString());
+        date = new Date(response.Data.General.StartDate);
+        date = date.toISOString().slice(0, 10);
+        $("#buy-date").attr("min", date);
       });
     });
   });
