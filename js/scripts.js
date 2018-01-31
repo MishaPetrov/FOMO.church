@@ -88,7 +88,8 @@ $(document).ready(function() {
     //$("#coinType").append('<input class="form-control" id="coin-type-input" type="text" placeholder="Search..">');
     $("#coinType").append(listItems);
     $("#coin-type-input").on("keyup", function() {
-      var value = $(this).text().toLowerCase();
+      var value = $(this).val().toLowerCase();
+      console.log("this is the value for each list item: " + value);
       $("#coinType li").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
