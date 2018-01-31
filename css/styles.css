@@ -34,6 +34,12 @@ button#calculate {
   color: #717171;
 }
 
+@media only screen and (max-width: 1026px) {
+   #ticker {
+       display: none;
+   }
+}
+
 .container-fluid {
   padding-left:0;
   padding-right:0;
