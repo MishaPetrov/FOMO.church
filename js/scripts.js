@@ -3,6 +3,11 @@ var SDK = typeof window !== 'undefined' ? window.COIN_API_SDK : require("./coina
 var cryptoApi = new SDK("7F2E3F11-2194-4945-9888-16822C39CCD0"); //"2014-11-02T23:59:59"
 //var numberOfCoins;
 
+function SortCoin(name, id, imgUrl) {
+  this.name = name;
+  this.id = id;
+  this.imgUrl = imgUrl;
+}
 
 // function calculate(coinType, fiatAmount, fiatType, startDate, endDate) {
 //   var sellPrice;
@@ -23,13 +28,23 @@ $(document).ready(function() {
   var fiatAmount;
 
   $.get("https://min-api.cryptocompare.com/data/all/coinlist", function(response) {
-    console.log(response);
     var listItems = '';
+    var sortedCoins = [];
     //var listItems = '<option selected="selected" value="0">- Select -</option>';
-
     Object.keys(response.Data).forEach(function(key) {
+      var coinName = key;
+      var sortId = response.Data[key].SortOrder;
       var imgUrl = response.Data[key].ImageUrl;
-      listItems += "<li value='" + key + "'><a href='#'><img class='crypto-icon' src='https://www.cryptocompare.com" + imgUrl + "'><span class='key-span'>" + key + "</span></a></li>";
+      var sortedCoin = new SortCoin(coinName, sortId, imgUrl);
+      sortedCoins.push(sortedCoin);
+    });
+
+    sortedCoins.sort(function(a, b){
+      return a.id-b.id;
+    });
+
+    sortedCoins.forEach(function(sortedCoin) {
+      listItems += "<li value='" + sortedCoin.name + "'><a href='#'><img class='crypto-icon' src='https://www.cryptocompare.com" + sortedCoin.imgUrl + "'><span class='key-span'>" + sortedCoin.name + "</span></a></li>";
     });
     //$("#coinType").append('<input class="form-control" id="coin-type-input" type="text" placeholder="Search..">');
     $("#coinType").append(listItems);
@@ -69,7 +84,6 @@ $(document).ready(function() {
 
     $.get(requestBuyPrice, function(response) {
       console.log(requestBuyPrice)
-      debugger;
       var coinVarBuy = response[coinTest];
       buyPrice = coinVarBuy[fiatTest];
 
