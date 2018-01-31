@@ -30,6 +30,15 @@ var todayDate = function() {
   return today;
 }
 
+var dateUSFormat = function(date) {
+  var dd = date.slice(0,2);
+  var mm = date.slice(3,5);
+  var yyyy = date.slice(6,10);
+
+  var newDate = mm+'/'+dd+'/'+yyyy;
+  return newDate;
+}
+
 // function calculate(coinType, fiatAmount, fiatType, startDate, endDate) {
 //   var sellPrice;
 //   var buyPrice;
@@ -51,10 +60,16 @@ $(document).ready(function() {
   $("#buy-date").attr("max", todayDate());
   $("#sell-date").attr("max", todayDate());
 
+  // Make sure user can't select sell date to be before the buy date
+  $("#buy-date").change(function() {
+    var buyDate = $("input#buy-date").val();
+    $("#sell-date").attr("min", buyDate);
+  });
+
+
   $.get("https://min-api.cryptocompare.com/data/all/coinlist", function(response) {
     var listItems = '';
     var sortedCoins = [];
-    console.log(response);
 
     //var listItems = '<option selected="selected" value="0">- Select -</option>';
     Object.keys(response.Data).forEach(function(key) {
@@ -74,7 +89,6 @@ $(document).ready(function() {
       listItems += "<li value='" + sortedCoin.id + "'><a href='#'><img class='crypto-icon' src='https://www.cryptocompare.com" + sortedCoin.imgUrl + "'><span class='key-span'>" + sortedCoin.name + "</span></a></li>";
     });
 
-    console.log(sortedCoins);
     //$("#coinType").append('<input class="form-control" id="coin-type-input" type="text" placeholder="Search..">');
     $("#coinType").append(listItems);
     $("#coin-type-input").on("keyup", function() {
@@ -89,8 +103,9 @@ $(document).ready(function() {
 
       var requestStartDate = "https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=" + $(this).val();
       $.get(requestStartDate, function(response) {
-        // WE ARE HERE
-        date = new Date(response.Data.General.StartDate);
+        var dateFromAPI = response.Data.General.StartDate;
+        var formattedDate = dateUSFormat(dateFromAPI);
+        date = new Date(formattedDate);
         date = date.toISOString().slice(0, 10);
         $("#buy-date").attr("min", date);
       });
@@ -109,27 +124,22 @@ $(document).ready(function() {
 
     startDate = Date.parse($("input#buy-date").val());
     startDate /= 1000;
-    console.log("Bought on " + startDate);
     endDate = Date.parse($("input#sell-date").val());
     endDate /= 1000;
-    console.log("Sold on " + endDate);
     // Config for HTTP request urls
     var requestBuyPrice = "https://min-api.cryptocompare.com/data/pricehistorical?fsym=" + coinTest + "&tsyms=" + fiatTest + "&ts=" + startDate;
     var requestSellPrice = "https://min-api.cryptocompare.com/data/pricehistorical?fsym=" + coinTest + "&tsyms=" + fiatTest + "&ts=" + endDate;
 
 
     $.get(requestBuyPrice, function(response) {
-      console.log(requestBuyPrice)
       var coinVarBuy = response[coinTest];
       buyPrice = coinVarBuy[fiatTest];
 
 
       $.get(requestSellPrice, function(response) {
 
-        console.log(requestSellPrice)
         var coinVarSell = response[coinTest];
         sellPrice = coinVarSell[fiatTest];
-        console.log("buy price: " + buyPrice + ", sell price: " + sellPrice);
 
         var numberOfCoins = fiatAmount / buyPrice;
         var calculateAmountNow = numberOfCoins * sellPrice;
