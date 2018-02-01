@@ -18,14 +18,14 @@ function init() {
   camera.position.z = 500;
 
   scene = new THREE.Scene();
-  
+
   group = new THREE.Group();
   scene.add( group );
 
   // earth
 
   var loader = new THREE.TextureLoader();
-  loader.load( 'http://www.supinemusic.net/Files%20for%20Cloud%20projects/Cinema%204D/plugins/Planet%20X%20Generator%20R12/presets/venus/Venus_Bump.jpg', function ( texture ) {
+  loader.load( 'https://i.imgur.com/xesEtcz.jpg', function ( texture ) {
 
     var geometry = new THREE.SphereGeometry( 200, 20, 20 );
 
