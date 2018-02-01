@@ -10,6 +10,17 @@ font-family: 'Poiret One', cursive;
 
 body, html {
   background: black;
+  background-image: url(../img/bg.gif);
+}
+
+.titleHover {
+  transition: .05s ease-in;
+  transition: 5s ease-out;
+}
+
+.titleHover:hover {
+    color: #fff;
+
 }
 
 ::selection {
