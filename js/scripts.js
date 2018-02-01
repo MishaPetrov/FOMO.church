@@ -56,40 +56,44 @@ $(document).ready(function() {
   $("#buy-date").attr("max", todayDate());
   $("#sell-date").attr("max", todayDate());
 
-
-  //disable calculate button until all fields are populated
-  $("input").change(function() {
-
-    var empty = false;
-    console.log("at the beginning, empty is " + empty)
-    if ($("#fiat-amount").val() === "") {
-      empty = true;
-    }
-
-    if ($(".crypto-search-btn").text() === '' || $(".crypto-search-btn").text() === "Cryptocurrency of Choice") {
-     empty = true;
-    }
-
-    if ($("#buy-date").val() === "") {
-      empty = true;
-    }
-
-    if ($("#sell-date").val() === "") {
-      empty = true;
-    }
+  $(".crypto-search-btn").change(function() {
+    console.log("hello");
+  })
 
 
-
-
-    console.log(empty);
-    if (empty) {
-      $("button#calculate").attr("disabled", "disabled");
-    } else {
-      $("button#calculate").removeAttr("disabled");
-    }
-        console.log("after this change, empty is " + empty);
-
-  });
+  //disable calculate button until all fields are populated - not working all the way
+  // $("input").change(function() {
+  //
+  //   var empty = false;
+  //   //console.log("at the beginning, empty is " + empty)
+  //   if ($("#fiat-amount").val() === "") {
+  //     empty = true;
+  //   }
+  //
+  //   if ($(".crypto-search-btn").text() === '' || $(".crypto-search-btn").text() === "Cryptocurrency of Choice") {
+  //    empty = true;
+  //   }
+  //
+  //   if ($("#buy-date").val() === "") {
+  //     empty = true;
+  //   }
+  //
+  //   if ($("#sell-date").val() === "") {
+  //     empty = true;
+  //   }
+  //
+  //
+  //
+  //
+  //   //console.log(empty);
+  //   if (empty) {
+  //     $("button#calculate").attr("disabled", "disabled");
+  //   } else {
+  //     $("button#calculate").removeAttr("disabled");
+  //   }
+  //       //console.log("after this change, empty is " + empty);
+  //
+  // });
 // });
 
   // Make sure user can't select sell date to be before the buy date
@@ -125,7 +129,7 @@ $(document).ready(function() {
     $("#coinType").append(listItems);
     $("#coin-type-input").on("keyup", function() {
       var value = $(this).val().toLowerCase();
-      console.log("this is the value for each list item: " + value);
+      //console.log("this is the value for each list item: " + value);
       $("#coinType li").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
@@ -133,6 +137,8 @@ $(document).ready(function() {
     $("li").click(function() {
       coinTest = $(this).text();
       $(".crypto-search-btn").text(coinTest);
+      $(".crypto-search-btn").attr("value", coinTest);
+
 
       var requestStartDate = "https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=" + $(this).val();
       $.get(requestStartDate, function(response) {
@@ -145,11 +151,8 @@ $(document).ready(function() {
     });
   });
 
-
-
   $("button#calculate").click(function(event) {
     event.preventDefault();
-
 
     $("#moonWell").addClass("moonWellMove");
 
