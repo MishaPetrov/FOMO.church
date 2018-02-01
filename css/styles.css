@@ -59,6 +59,12 @@ body, html {
   padding: 2px 0 2px 0;
 }
 
+.socialWidget {
+  display: none;
+  text-align: center;
+  margin: 0 auto;
+}
+
 p#terminal {
   font-family: "Andale Mono", AndaleMono, monospace !important;
   font-size: 16pt;
@@ -134,7 +140,7 @@ button#calculate {
   border: none;
   background-color: rgba(0,0,0,0);
   position: absolute;
-  top: 37%;
+  top: 45%;
   left: 25%;
   right: 25%;
   bottom: 25%;

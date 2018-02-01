@@ -183,11 +183,11 @@ $(document).ready(function() {
         if (profit < 0) {
           $(".result").addClass("red");
           $(".result").html("If I had invested <span title='Buys " + numberOfCoins + " " + coinTest + " on " + buyDateOutput(buyDate) + "'>" + fiatSymbol(fiatTest) + fiatAmount + "</span> in " +  coinTest + "</span> on " + buyDateOutput(buyDate) + " and sold on " + sellDateOutput(sellDate) + " I would have lost <span title='Total value " + fiatSymbol(fiatTest) + Math.round(calculateAmountNow.toFixed(2)) + " on " + sellDateOutput(sellDate) + "'>" + fiatSymbol(fiatTest) + Math.abs(profit) + "</span>");
-          $(".socialWidget").html("<div class='sharethis-inline-share-buttons'></div>");
+          $(".socialWidget").show();
         } else {
           $(".result").removeClass("red");
           $(".result").html("If I had invested <span title='Buys " + numberOfCoins + " " + coinTest + " on " + buyDateOutput(buyDate) + "'>" + fiatSymbol(fiatTest) + fiatAmount + "</span> in " +  coinTest + "</span> on " + buyDateOutput(buyDate) + " and sold on " + sellDateOutput(sellDate) + " I would have made <span title='Total value " + fiatSymbol(fiatTest) + Math.round(calculateAmountNow.toFixed(2)) + " on " + sellDateOutput(sellDate) + "'>" + fiatSymbol(fiatTest) + Math.abs(profit) + "</span>");
-          $(".socialWidget").html("<div class='sharethis-inline-share-buttons'></div>");
+          $(".socialWidget").show();
         }
 
 
