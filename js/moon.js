@@ -18,8 +18,7 @@ function init() {
   camera.position.z = 500;
 
   scene = new THREE.Scene();
-  scene.background = new THREE.Color("rgba(0,0,0,0)");
-
+  
   group = new THREE.Group();
   scene.add( group );
 
@@ -51,11 +50,11 @@ function init() {
     canvas.height / 2,
     canvas.width / 2
   );
-  gradient.addColorStop( 0.1, 'rgba(210,210,210,0)' );
-  gradient.addColorStop( 1, 'rgba(255,255,255,0)' );
+  gradient.addColorStop( 0, 'rgba(210,210,210,0)' );
+  gradient.addColorStop( 0, 'rgba(255,255,255,0)' );
 
-  context.fillStyle = gradient;
-  context.fillRect( 0, 0, canvas.width, canvas.height );
+  // context.fillStyle = gradient;
+  // context.fillRect( 0, 0, canvas.width, canvas.height );
 
   var texture = new THREE.CanvasTexture( canvas );
 
@@ -67,7 +66,7 @@ function init() {
   mesh.rotation.x = - Math.PI / 2;
   group.add( mesh );
 
-  renderer = new THREE.CanvasRenderer();
+  renderer = new THREE.CanvasRenderer( { alpha:true });
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
   container.appendChild( renderer.domElement );
