@@ -149,20 +149,9 @@ $(document).ready(function() {
 
   $("button#calculate").click(function(event) {
     event.preventDefault();
-<<<<<<< HEAD
+
 
     $("#moonWell").addClass("moonWellMove");
-=======
-    // while ($("#fiat-amount").val() === '' || $(".crypto-search-btn").text() === '' || $(".crypto-search-btn").text() === "Cryptocurrency of Choice" || $("#buy-date").val() === '' || $("#sell-date").val() === '' ) {
-    //     alert("fill out the fields")
-    //     break;
-    //   }
-    //     alert("you filled out the fields");
-
-    //all inputs: buyPrice, sellprice, fiatTest (value of currency type), fiatAmount (amount of currency), startDate (buy date), endDate (sell date), coinTest (crypto selection)
-    //on submit, check inputs fiatTest, fiatAmount, coinTest, startDate, endDate
-
->>>>>>> submit
 
     var buyPrice;
     var sellPrice;
