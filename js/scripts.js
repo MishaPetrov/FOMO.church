@@ -56,12 +56,16 @@ $(document).ready(function() {
   $("#buy-date").attr("max", todayDate());
   $("#sell-date").attr("max", todayDate());
 
+  $(".crypto-search-btn").change(function() {
+    console.log("hello");
+  })
+
 
   //disable calculate button until all fields are populated
   $("input").change(function() {
 
     var empty = false;
-    console.log("at the beginning, empty is " + empty)
+    //console.log("at the beginning, empty is " + empty)
     if ($("#fiat-amount").val() === "") {
       empty = true;
     }
@@ -81,13 +85,13 @@ $(document).ready(function() {
 
 
 
-    console.log(empty);
+    //console.log(empty);
     if (empty) {
       $("button#calculate").attr("disabled", "disabled");
     } else {
       $("button#calculate").removeAttr("disabled");
     }
-        console.log("after this change, empty is " + empty);
+        //console.log("after this change, empty is " + empty);
 
   });
 // });
@@ -125,7 +129,7 @@ $(document).ready(function() {
     $("#coinType").append(listItems);
     $("#coin-type-input").on("keyup", function() {
       var value = $(this).val().toLowerCase();
-      console.log("this is the value for each list item: " + value);
+      //console.log("this is the value for each list item: " + value);
       $("#coinType li").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
@@ -133,6 +137,8 @@ $(document).ready(function() {
     $("li").click(function() {
       coinTest = $(this).text();
       $(".crypto-search-btn").text(coinTest);
+      $(".crypto-search-btn").attr("value", coinTest);
+
 
       var requestStartDate = "https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=" + $(this).val();
       $.get(requestStartDate, function(response) {
@@ -145,11 +151,8 @@ $(document).ready(function() {
     });
   });
 
-
-
   $("button#calculate").click(function(event) {
     event.preventDefault();
-
 
     $("#moonWell").addClass("moonWellMove");
 
