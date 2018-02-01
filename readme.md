@@ -2,12 +2,6 @@
 
 FOMO.CHURCH is a cryptocurrency calculator designed to turn users onto the cryptosphere and inspire investment. It takes its name from the term 'FOMO', an acronym that stands for 'Fear Of Missing Out' and the term 'church', which is a place of worship and a colloquialism meaning 'acceptable'
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Installing
-
 ## Deployment
 
 Go to https://fomo.church
@@ -22,7 +16,7 @@ Go to https://fomo.church
 
 ## Versioning
 
-Version 1
+v1.0
 
 ## Authors
 
