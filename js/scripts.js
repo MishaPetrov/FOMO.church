@@ -1,7 +1,7 @@
-var SDK = typeof window !== 'undefined' ? window.COIN_API_SDK : require("./coinapi_v1")["default"]
-
-var cryptoApi = new SDK("7F2E3F11-2194-4945-9888-16822C39CCD0"); //"2014-11-02T23:59:59"
-//var numberOfCoins;
+// var SDK = typeof window !== 'undefined' ? window.COIN_API_SDK : require("./coinapi_v1")["default"]
+//
+// var cryptoApi = new SDK("7F2E3F11-2194-4945-9888-16822C39CCD0"); //"2014-11-02T23:59:59"
+// //var numberOfCoins;
 
 function SortCoin(name, id, sortId, imgUrl) {
   this.name = name;
@@ -56,6 +56,42 @@ $(document).ready(function() {
   $("#buy-date").attr("max", todayDate());
   $("#sell-date").attr("max", todayDate());
 
+
+  //disable calculate button until all fields are populated
+  $("input").change(function() {
+
+    var empty = false;
+    console.log("at the beginning, empty is " + empty)
+    if ($("#fiat-amount").val() === "") {
+      empty = true;
+    }
+
+    if ($(".crypto-search-btn").text() === '' || $(".crypto-search-btn").text() === "Cryptocurrency of Choice") {
+     empty = true;
+    }
+
+    if ($("#buy-date").val() === "") {
+      empty = true;
+    }
+
+    if ($("#sell-date").val() === "") {
+      empty = true;
+    }
+
+
+
+
+    console.log(empty);
+    if (empty) {
+      $("button#calculate").attr("disabled", "disabled");
+    } else {
+      $("button#calculate").removeAttr("disabled");
+    }
+        console.log("after this change, empty is " + empty);
+
+  });
+// });
+
   // Make sure user can't select sell date to be before the buy date
   $("#buy-date").change(function() {
     var buyDate = $("input#buy-date").val();
@@ -109,8 +145,11 @@ $(document).ready(function() {
     });
   });
 
+
+
   $("button#calculate").click(function(event) {
     event.preventDefault();
+
 
     $("#moonWell").addClass("moonWellMove");
 
