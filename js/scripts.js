@@ -224,18 +224,28 @@ $(document).ready(function() {
         var numberOfCoins = fiatAmount / buyPrice;
         var calculateAmountNow = numberOfCoins * sellPrice;
         var profit = Math.round(calculateAmountNow.toFixed(2) - fiatAmount);
+        var socialWidgetResult;
 
         $(".socialWidget").show();
+
+        $(".soc-twitter").attr("href", socialWidgetResult);
 
         if (profit < 0) {
           $(".result").addClass("red");
           $(".result").html("If I had invested <span title='Buys " + numberOfCoins + " " + coinTest + " on " + buyDateOutput(buyDate) + "'>" + fiatSymbol(fiatTest) + fiatAmount + "</span> in " +  coinTest + "</span> on " + buyDateOutput(buyDate) + " and sold on " + sellDateOutput(sellDate) + " I would have lost <span title='Total value " + fiatSymbol(fiatTest) + Math.round(calculateAmountNow.toFixed(2)) + " on " + sellDateOutput(sellDate) + "'>" + fiatSymbol(fiatTest) + Math.abs(profit) + "</span>");
+
+          // Builidng a message for social media sharing
+          socialWidgetResult = ("https://twitter.com/intent/tweet?text=" + "If I had invested " + fiatSymbol(fiatTest) + fiatAmount + " in " +  coinTest + " on " + buyDateOutput(buyDate) + " and sold on " + sellDateOutput(sellDate) + " I would have lost " + fiatSymbol(fiatTest) + Math.abs(profit) + " #FOMO.CHURCH #CRYPTO #BTC #ETH");
+
         } else {
           $(".result").removeClass("red");
           $(".result").html("If I had invested <span title='Buys " + numberOfCoins + " " + coinTest + " on " + buyDateOutput(buyDate) + "'>" + fiatSymbol(fiatTest) + fiatAmount + "</span> in " +  coinTest + "</span> on " + buyDateOutput(buyDate) + " and sold on " + sellDateOutput(sellDate) + " I would have made <span title='Total value " + fiatSymbol(fiatTest) + Math.round(calculateAmountNow.toFixed(2)) + " on " + sellDateOutput(sellDate) + "'>" + fiatSymbol(fiatTest) + Math.abs(profit) + "</span>");
+
+          // Builidng a message for social media sharing
+          socialWidgetResult = ("https://twitter.com/intent/tweet?text=" + "If I had invested " + fiatSymbol(fiatTest) + fiatAmount + " in " +  coinTest + " on " + buyDateOutput(buyDate) + " and sold on " + sellDateOutput(sellDate) + " I would have made " + fiatSymbol(fiatTest) + Math.abs(profit) + "&?hashtags=FOMO.CHURCH ,CRYPTO ,BTC ,ETH");
         }
 
-
+        $(".soc-twitter").attr("href", socialWidgetResult);
 
       });
 
