@@ -61,39 +61,39 @@ $(document).ready(function() {
   })
 
 
-  //disable calculate button until all fields are populated
-  $("input").change(function() {
-
-    var empty = false;
-    //console.log("at the beginning, empty is " + empty)
-    if ($("#fiat-amount").val() === "") {
-      empty = true;
-    }
-
-    if ($(".crypto-search-btn").text() === '' || $(".crypto-search-btn").text() === "Cryptocurrency of Choice") {
-     empty = true;
-    }
-
-    if ($("#buy-date").val() === "") {
-      empty = true;
-    }
-
-    if ($("#sell-date").val() === "") {
-      empty = true;
-    }
-
-
-
-
-    //console.log(empty);
-    if (empty) {
-      $("button#calculate").attr("disabled", "disabled");
-    } else {
-      $("button#calculate").removeAttr("disabled");
-    }
-        //console.log("after this change, empty is " + empty);
-
-  });
+  //disable calculate button until all fields are populated - not working all the way
+  // $("input").change(function() {
+  //
+  //   var empty = false;
+  //   //console.log("at the beginning, empty is " + empty)
+  //   if ($("#fiat-amount").val() === "") {
+  //     empty = true;
+  //   }
+  //
+  //   if ($(".crypto-search-btn").text() === '' || $(".crypto-search-btn").text() === "Cryptocurrency of Choice") {
+  //    empty = true;
+  //   }
+  //
+  //   if ($("#buy-date").val() === "") {
+  //     empty = true;
+  //   }
+  //
+  //   if ($("#sell-date").val() === "") {
+  //     empty = true;
+  //   }
+  //
+  //
+  //
+  //
+  //   //console.log(empty);
+  //   if (empty) {
+  //     $("button#calculate").attr("disabled", "disabled");
+  //   } else {
+  //     $("button#calculate").removeAttr("disabled");
+  //   }
+  //       //console.log("after this change, empty is " + empty);
+  //
+  // });
 // });
 
   // Make sure user can't select sell date to be before the buy date
