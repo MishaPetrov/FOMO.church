@@ -60,7 +60,7 @@ body, html {
 }
 
 .socialWidget {
-  /*display: none;*/
+  display: none;
   text-align: center;
   margin: 0 auto;
 }
@@ -303,8 +303,8 @@ font-family: 'Inconsolata', monospace;
     -moz-border-radius: 100px;
     border-radius: 100px;
     margin-right: 50px;
-    color: #ffffff;
-    background-color: #7a7979;
+    color: #F0F0F0;
+    background-color: #000000;
 }
 
 .soc a:hover {
