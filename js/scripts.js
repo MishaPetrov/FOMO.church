@@ -178,8 +178,16 @@ $(document).ready(function() {
 
         var numberOfCoins = fiatAmount / buyPrice;
         var calculateAmountNow = numberOfCoins * sellPrice;
+        var profit = Math.round(calculateAmountNow.toFixed(2) - fiatAmount);
 
-        $(".result").text("If I had invested " + fiatSymbol(fiatTest) + fiatAmount + "  in " + coinTest + " on " + buyDateOutput(buyDate) + " and sold that investment on " + sellDateOutput(sellDate) + " I would have made " + fiatSymbol(fiatTest) + Math.round(calculateAmountNow.toFixed(2) - fiatAmount));
+        if (profit < 0) {
+          $(".result").addClass("red");
+          $(".result").html("If I had invested " + fiatSymbol(fiatTest) + fiatAmount + " in <span title='" + numberOfCoins + " " + coinTest + "'>" +  coinTest + "</span> on " + buyDateOutput(buyDate) + " and sold on " + sellDateOutput(sellDate) + " I would have lost " + fiatSymbol(fiatTest) + Math.abs(profit));
+        } else {
+          $(".result").removeClass("red");
+          $(".result").html("If I had invested " + fiatSymbol(fiatTest) + fiatAmount + " in <span title='" + numberOfCoins + " " + coinTest + "'>" +  coinTest + " on " + buyDateOutput(buyDate) + " and sold on " + sellDateOutput(sellDate) + " I would have made " + fiatSymbol(fiatTest) + Math.abs(profit));
+        }
+
 
 
       });
