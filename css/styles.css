@@ -153,10 +153,24 @@ button#calculate {
 }
 
 label {
-  color: #fff;
-  background: #00000080;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11pt;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 2px;
+  border-radius: 3px;
 }
+
+font-family: 'Montserrat', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Crimson Text', serif;
+font-family: 'Lato', sans-serif;
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'Titillium Web', sans-serif;
+font-family: 'Inconsolata', monospace;
 /* moonDiv */
+
 
 /* carousel styling */
 

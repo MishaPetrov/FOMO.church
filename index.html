@@ -18,6 +18,8 @@
     <script src="js/CanvasRenderer.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Dhurjati|Encode+Sans|Libre+Barcode+39+Text|Libre+Franklin|Lobster|Maven+Pro|Open+Sans+Condensed:300|Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Inconsolata|Lato|Montserrat:400,800,900|Open+Sans+Condensed:300|Poppins|Titillium+Web|Ubuntu" rel="stylesheet">
+
     <script src="https://rawgit.com/mzabriskie/axios/master/dist/axios.min.js"></script>
     <script src="https://rawgit.com/coinapi/coinapi-sdk/master/javascript-rest/coinapi_v1.js"></script>
     <script src="js/scripts.js"></script>
@@ -85,7 +87,7 @@
         <div class="formElements">
 
 
-          <label for="fiat-amount">Investment</label>
+          <label for="fiat-amount">IF I HAD INVESTED</label>
           <div class="form-inline form-group">
 
               <input id="fiat-amount" class="form-control" type="text" onkeyup="this.value=this.value.replace(/[^\d]/,'')" style="width: 185px;" placeholder="Investment Amount">
@@ -112,11 +114,11 @@
           </div>
 
           <div class="form-group">
-            <label for="buy-date">Purchase Date</label>
+            <label for="buy-date">ON THIS DATE</label>
             <input id="buy-date" min="" max="" class="form-control" type="date" onkeydown="return false">
           </div>
           <div class="form-group">
-            <label for="sell-date">Sell Date</label>
+            <label for="sell-date">AND SOLD ON THIS DATE</label>
             <input id="sell-date" max="" class="form-control" type="date" onkeydown="return false">
           </div>
           <button type="button" class="btn btn-default" id="calculate">Calculate</button>
