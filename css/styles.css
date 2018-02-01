@@ -17,10 +17,10 @@ body, html {
   position: relative;
   transition: .05s ease-in;
   transition: 5s ease-out;
-  padding-bottom: 300px;
-  margin-bottom: -300px;
-  padding-top: 300px;
-  margin-top: -300px;
+  padding-bottom: 150px;
+  margin-bottom: -150px;
+  padding-top: 150px;
+  margin-top: -150px;
   z-index: 0;
 }
 
