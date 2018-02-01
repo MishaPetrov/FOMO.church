@@ -72,10 +72,14 @@
 <!-- calculator -->
       <div class="well well-sm" id="moonWell">
         <div class="formElements">
-          <label for="fiat-amount">If I had invested</label>
-          <div id="oneline" class="form-group">
-              <input id="fiat-amount" class="form-control" type="text" onkeyup="this.value=this.value.replace(/[^\d]/,'')" style="width: 120px;">
-              <select id="fiatType" class="form-control" style="width: 100px; display: inline;">
+
+
+          <label for="fiat-amount">Investment</label>
+          <div class="form-inline form-group">
+
+              <input id="fiat-amount" class="form-control" type="text" onkeyup="this.value=this.value.replace(/[^\d]/,'')" style="width: 185px;" placeholder="Investment Amount">
+
+              <select id="fiatType" class="form-control" style="width: 60px;">
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
                 <option value="CAD">CAD</option>
@@ -85,37 +89,38 @@
                 <option value="CNY">CNY</option>
                 <option value="KRW">KRW</option>
               </select>
+
             </div>
+
           <div class="dropdown">
-            <label for="coinType">Coin Type:</label>
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="crypto-search-btn">Click to search</span>
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="crypto-search-btn">Cryptocurrency of Choice</span>
               <span class="caret"></span></button>
             <ul id="coinType" class="dropdown-menu">
-              <input class="form-control" id="coin-type-input" type="text" placeholder="Search..">
+              <input class="form-control" id="coin-type-input" type="text" placeholder="Search...">
             </ul>
           </div>
 
           <div class="form-group">
-            <label for="buy-date">Buy date:</label>
+            <label for="buy-date">Purchase Date</label>
             <input id="buy-date" min="" max="" class="form-control" type="date" onkeydown="return false">
           </div>
           <div class="form-group">
-            <label for="sell-date">Sell date:</label>
+            <label for="sell-date">Sell Date</label>
             <input id="sell-date" max="" class="form-control" type="date" onkeydown="return false">
           </div>
           <button type="button" class="btn btn-default" id="calculate">Calculate</button>
         </div>
       </div>
 <!-- T-shirt carousel -->
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
       <!-- Carousel indicators -->
-        <ol class="carousel-indicators">
+        <!-- <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
           <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
+        </ol> -->
         <!-- Wrapper for carousel items -->
-        <div class="carousel-inner">
+        <!-- <div class="carousel-inner">
           <div class="item active" id="tShirtOne">
               <img src="img/protoBot.gif" alt="First Slide">
           </div>
@@ -125,15 +130,15 @@
           <div class="item" id="tShirtThree">
               <img src="img/protoBot.gif" alt="Third Slide">
           </div>
-        </div>
+        </div> -->
         <!-- Carousel controls -->
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+        <!-- <a class="carousel-control left" href="#myCarousel" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
         <a class="carousel-control right" href="#myCarousel" data-slide="next">
           <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
-      </div>
+      </div> -->
     </div> <!-- container -->
 
   </body>
