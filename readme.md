@@ -4,7 +4,7 @@ FOMO.CHURCH is a cryptocurrency calculator designed to turn users onto the crypt
 
 ## Deployment
 
-Go to https://fomo.church
+Go to http://fomo.church
 
 ## Built With
 
